@@ -1,5 +1,5 @@
 # Registro-PH.
-Solicitante: Simon Beard
+Solicitante: Dr. Simon Beard
 
 Laboratorio: Microbial Ecophysiology Lab Fundacion ciencia y vida
 
