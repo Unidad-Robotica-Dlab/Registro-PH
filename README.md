@@ -1,4 +1,6 @@
 # Registro-PH.
+Solicitante: Simon Beard
+Laboratorio: Microbial Ecophysiology Lab Fundacion ciencia y vida
 
 - [12/02/24]
 	- Maquina pH en Robotica 
