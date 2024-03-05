@@ -1,4 +1,13 @@
-# Registro-PH.
+# Proyecto: Registro-PH
+## Solicitante: Nicolas Martinez
+### Introduccion: Maquina capaz de mostrar el pH de una solucion.
+### Requirimientos: 
+	- 4 Dias de fermentacion en total.
+	- Almacenar los datos de la lectura en la base de datos del computador.
+	- Sample rate por definir.
+	- Menu interactivo.
+### Metodologia: Aislar maquina a traves de un amp.op y leer el voltaje bruto del sensor de pH para luego incorporarlo en el esp32. De esta forma se registran los datos en tiempo real.
+### Notas:
 Solicitante: Dr. Simon Beard
 
 Laboratorio: Microbial Ecophysiology Lab Fundacion ciencia y vida
