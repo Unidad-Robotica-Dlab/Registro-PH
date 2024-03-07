@@ -3,16 +3,18 @@
 - Laboratorio: Microbial Ecophysiology Lab Fundacion ciencia y vida
 
 ### Introduccion: 
-- Maquina capaz de mostrar el pH de una solucion.
+- Maquina ElectroLab FerMac 200 capaz de controlar el pH de una solucion de forma mecanica, ademas tiene un display que muestra el pH en tiempo real.
 
 ### Requirimientos: 
-- 4 Dias de fermentacion en total.
-- Almacenar los datos de la lectura en la base de datos del computador.
-- Sample rate por definir.
-- Menu interactivo.
+- Registrar el pH mediante un esp32 y guardar los datos en una BBDD.
+- [06/03/2024]
+	- Almacenar los datos de la lectura en la base de datos del computador.
+	- 4 Dias de fermentacion en total.
+	- Sample rate por definir.
+	- Menu interactivo.
 
 ### Metodologia: 
-- Aislar maquina a traves de un amp.op y leer el voltaje bruto del sensor de pH para luego incorporarlo en el esp32. De esta forma se registran los datos en tiempo real.
+- Leer el voltaje de salida del ampop de la placa electronica de la maquina, aislar el circuito agregando otro ampop en modo diferencial y leer nuevamente el voltaje de salida mediante un esp32.
 
 ### Notas:
 - [12/02/24]
