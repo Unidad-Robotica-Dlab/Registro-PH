@@ -43,5 +43,5 @@ void loop() {
     numValores = 0;
   }
 
-  delay(100);
+  delay(100); //verificar tiempo de muestreo 
 }
