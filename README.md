@@ -34,3 +34,8 @@
 	- En 1.68pH = 2.16V ; 10.1pH = 1.58V (con ampop Agregado [model: UA741CP])
 	- En 1.68pH = 302 (AnalogRead) ; 10.1pH = 227 (AnalogRead)
 	- Ec. Recta: y = -0.11226x+35.58453
+
+- [11/03/24] : 
+	- Cotizacion y dibujo de soporte del dispositivo en Inkscape
+
+
