@@ -16,9 +16,14 @@
 ### Metodologia: 
 - Leer el voltaje de salida del ampop de la placa electronica de la maquina, aislar el circuito agregando otro ampop en modo diferencial y leer nuevamente el voltaje de salida mediante un esp32.
 
-  1) Rango de operacion en voltaje del sensor PH [Firmware-E_RPH_v0-1](https://github.com/Unidad-Robotica-Dlab/Registro-PH/blob/main/Software/Firmware-E_RPH_v0-1/Firmware-E_RPH_v0-1.ino).
+  1) Rango de operacion en voltaje del sensor PH 
   2) Sistema de acoplamiento amplificador operacional
-  3) Sistema de registro con una memoria SD, Cotizar un ESP32 con lector de memoria SD incluido en PCB
+  3) Registrar el voltaje como lectura analoga en ESP32. [Firmware-E_RPH_v0-1](https://github.com/Unidad-Robotica-Dlab/Registro-PH/blob/main/Software/Firmware-E_RPH_v0-1/Firmware-E_RPH_v0-1.ino).
+  4) Almacenar los datos de la lectura en la base de datos del computador.
+  	4.1) 4 Dias de fermentacion en total.
+  	4.2) Sample rate por definir.
+  	4.3) Menu interactivo.
+     
 
 ### Software: 
 - Firmware-E_RPH_v0-1:
