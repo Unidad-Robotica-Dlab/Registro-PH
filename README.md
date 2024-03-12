@@ -20,9 +20,7 @@
   2) Sistema de acoplamiento amplificador operacional
   3) Registrar el voltaje como lectura analoga en ESP32. [Firmware-E_RPH_v0-1](https://github.com/Unidad-Robotica-Dlab/Registro-PH/blob/main/Software/Firmware-E_RPH_v0-1/Firmware-E_RPH_v0-1.ino).
   4) Almacenar los datos de la lectura en la base de datos del computador.
-  5) 4 Dias de fermentacion en total.
-  6) Sample rate por definir.
-  7) Menu interactivo.
+
      
 
 ### Software: 
