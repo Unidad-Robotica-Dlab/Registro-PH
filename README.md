@@ -1,55 +1,49 @@
 # Proyecto: Registro-PH
 ## Solicitante: Simon Beard
-- Laboratorio: Microbial Ecophysiology Lab Fundacion ciencia y vida
+### Laboratorio: Microbial Ecophysiology Lab Fundación Ciencia y Vida
 
-### Introduccion: 
-- Maquina ElectroLab FerMac 200 capaz de controlar el pH de una solucion de forma mecanica, ademas tiene un display que muestra el pH en tiempo real.
+#### Introducción:
+La Maquina ElectroLab FerMac 200 es capaz de controlar el pH de una solución de forma mecánica y cuenta con un display que muestra el pH en tiempo real.
 
-### Requirimientos: 
-- Registrar el pH mediante un esp32 y guardar los datos en una BBDD.
-- [06/03/2024]
-	- Almacenar los datos de la lectura en la base de datos del computador.
-	- 4 Dias de fermentacion en total.
-	- Sample rate por definir.
-	- Menu interactivo.
+#### Requerimientos:
+- Registrar el pH mediante un ESP32 y guardar los datos en una base de datos.
+- Fecha de solicitud: 06/03/2024
+	- Almacenar los datos de la lectura en la base de datos del ordenador.
+	- Duración total de la fermentación: 4 días.
+	- Tasa de muestreo por determinar.
+	- Implementación de un menú interactivo.
 
-### Metodologia: 
-- Leer el voltaje de salida del ampop de la placa electronica de la maquina, aislar el circuito agregando otro ampop en modo diferencial y leer nuevamente el voltaje de salida mediante un esp32.
+#### Metodología:
+- Leer el voltaje de salida del amplificador operacional (amplificador operacional) en la placa electrónica de la máquina, aislar el circuito mediante la adición de otro amplificador operacional en modo diferencial y leer nuevamente el voltaje de salida mediante un ESP32.
+  
+  1) Establecer el rango de operación en voltaje del sensor de pH.
+  2) Implementar un sistema de acoplamiento con amplificador operacional.
+  3) Registrar el voltaje como lectura analógica en ESP32.
+  4) Almacenar los datos de la lectura en la base de datos del ordenador.
 
-  1) Rango de operacion en voltaje del sensor PH 
-  2) Sistema de acoplamiento amplificador operacional
-  3) Registrar el voltaje como lectura analoga en ESP32. 
-  4) Almacenar los datos de la lectura en la base de datos del computador.
-
-     
-
-### Software: 
-- [Firmware-E_RPH_v0-1](https://github.com/Unidad-Robotica-Dlab/Registro-PH/blob/main/Software/Firmware-E_RPH_v0-1/Firmware-E_RPH_v0-1.ino).:
-	- Esp32 realizando la lectura del voltaje y haciendo un promedio de los 10 subpromedios , donde cada subpromedio es el promedio de las 10 lecturas.
-	- Imprime el valor en pH el cual viene de una ec. de la recta.
+#### Software:
+- [Firmware-E_RPH_v0-1](https://github.com/Unidad-Robotica-Dlab/Registro-PH/blob/main/Software/Firmware-E_RPH_v0-1/Firmware-E_RPH_v0-1.ino):
+	- El ESP32 realiza la lectura del voltaje y calcula un promedio de 10 subpromedios, donde cada subpromedio es el promedio de 10 lecturas.
+	- Imprime el valor de pH calculado a partir de una ecuación lineal.
 - Firmware-E_RPH_v0-2: -
 - Software-_RPH_v0-2: -
 
-### Notas:
+#### Notas:
 - [12/02/24]
-	- Maquina pH en Robotica 
-- [16/02/24] : 
-	- Maquina pH desarmada y con todos los implementos para medir el pH, se trajeron tres pH con diferentes valores: 1.68pH , 4pH y 10.1pH. 
-- [19/02/24] : 
-	- Se mide voltaje de salida en el AMPOP de la maquina y se realiza un divisor de tension. 
-	- En 1.68pH = 17V ; 10.1pH = 11.1V (Vsalida ampop Maquina[model: OPA602AP])
-	- En 1.68pH = 2.83V ; 10.1pH = 1.85V (con div)
-	- En 1.68pH = 402 (AnalogRead) ; 10.1pH = 261 (AnalogRead)
-	- Ec. Recta: y = -0.0597x+25.685
-
-- [21/02/24] : 
-	- Se quita el div de tension y se agrega un ampop en modo diferencial para aislar los circuitos. 
-	- En 1.68pH = 17V ; 10.1pH = 11.1V (Vsalida ampop Maquina[model: OPA602AP])
-	- En 1.68pH = 2.16V ; 10.1pH = 1.58V (con ampop Agregado [model: UA741CP])
-	- En 1.68pH = 302 (AnalogRead) ; 10.1pH = 227 (AnalogRead)
-	- Ec. Recta: y = -0.11226x+35.58453
-
-- [11/03/24] : 
-	- Cotizacion y dibujo de soporte del dispositivo en Inkscape
-
-
+	- La máquina pH se encuentra en Robótica.
+- [16/02/24]:
+	- La máquina pH ha sido desarmada y se dispone de todos los implementos necesarios para medir el pH. Se han obtenido tres valores de pH diferentes: 1.68pH, 4pH y 10.1pH.
+- [19/02/24]:
+	- Se ha medido el voltaje de salida en el amplificador operacional de la máquina y se ha implementado un divisor de tensión.
+	- Para 1.68pH, el voltaje de salida es de 17V; para 10.1pH, es de 11.1V (Voltaje de salida del amplificador operacional de la máquina [modelo: OPA602AP]).
+	- Después del divisor de tensión, para 1.68pH, el voltaje es de 2.83V; para 10.1pH, es de 1.85V.
+	- Los valores leídos analógicamente son 402 para 1.68pH y 261 para 10.1pH.
+	- Ecuación de la recta: y = -0.0597x + 25.685.
+- [21/02/24]:
+	- Se ha eliminado el divisor de tensión y se ha agregado un amplificador operacional en modo diferencial para aislar los circuitos.
+	- Para 1.68pH, el voltaje de salida es de 17V; para 10.1pH, es de 11.1V (Voltaje de salida del amplificador operacional de la máquina [modelo: OPA602AP]).
+	- Después de agregar el amplificador operacional, para 1.68pH, el voltaje es de 2.16V; para 10.1pH, es de 1.58V.
+	- Los valores leídos analógicamente son 302 para 1.68pH y 227 para 10.1pH.
+	- Ecuación de la recta: y = -0.11226x + 35.58453.
+- [11/03/24]:
+	- Cotización y diseño del soporte del dispositivo en Inkscape.
