@@ -16,6 +16,17 @@
 ### Metodologia: 
 - Leer el voltaje de salida del ampop de la placa electronica de la maquina, aislar el circuito agregando otro ampop en modo diferencial y leer nuevamente el voltaje de salida mediante un esp32.
 
+  1) Rango de operacion en voltaje del sensor PH
+  2) Sistema de acoplamiento amplificador operacional
+  3) Sistema de registro con una memoria SD, Cotizar un ESP32 con lector de memoria SD incluido en PCB
+
+### Software: 
+- Firmware-E_RPH_v0-1:
+	- Esp32 realizando la lectura del voltaje y haciendo un promedio de los 10 subpromedios , donde cada subpromedio es el promedio de las 10 lecturas.
+	- Imprime el valor en pH el cual viene de una ec. de la recta.
+- Firmware-E_RPH_v0-2: -
+- Software-_RPH_v0-2: -
+
 ### Notas:
 - [12/02/24]
 	- Maquina pH en Robotica 
