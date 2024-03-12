@@ -18,13 +18,13 @@
 
   1) Rango de operacion en voltaje del sensor PH 
   2) Sistema de acoplamiento amplificador operacional
-  3) Registrar el voltaje como lectura analoga en ESP32. [Firmware-E_RPH_v0-1](https://github.com/Unidad-Robotica-Dlab/Registro-PH/blob/main/Software/Firmware-E_RPH_v0-1/Firmware-E_RPH_v0-1.ino).
+  3) Registrar el voltaje como lectura analoga en ESP32. 
   4) Almacenar los datos de la lectura en la base de datos del computador.
 
      
 
 ### Software: 
-- Firmware-E_RPH_v0-1:
+- [Firmware-E_RPH_v0-1](https://github.com/Unidad-Robotica-Dlab/Registro-PH/blob/main/Software/Firmware-E_RPH_v0-1/Firmware-E_RPH_v0-1.ino).:
 	- Esp32 realizando la lectura del voltaje y haciendo un promedio de los 10 subpromedios , donde cada subpromedio es el promedio de las 10 lecturas.
 	- Imprime el valor en pH el cual viene de una ec. de la recta.
 - Firmware-E_RPH_v0-2: -
