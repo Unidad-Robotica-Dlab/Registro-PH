@@ -16,9 +16,9 @@
 ### Metodologia: 
 - Leer el voltaje de salida del ampop de la placa electronica de la maquina, aislar el circuito agregando otro ampop en modo diferencial y leer nuevamente el voltaje de salida mediante un esp32.
   
-1.-rango de operacion en voltaje del sensor PH
-2.-Sistema de acoplamiento amplificador operacional
-3.-Sistema de registro con una memoria SD, Cotizar un ESP32 con lector de memoria SD incluido en PCB
+	1.-rango de operacion en voltaje del sensor PH
+	2.-Sistema de acoplamiento amplificador operacional
+	3.-Sistema de registro con una memoria SD, Cotizar un ESP32 con lector de memoria SD incluido en PCB
 
 ### Software: 
 - Firmware-E_RPH_v0-1:
