@@ -27,7 +27,7 @@ La Maquina ElectroLab FerMac 200 es capaz de controlar el pH de una solución de
 	- Imprime el valor de pH calculado a partir de una ecuación lineal.
 - [Firmware-E_RPH_v0-2](https://github.com/Unidad-Robotica-Dlab/Registro-PH/blob/main/Software/Firmware-E_RPH_v0-2/Firmware-E_RPH_v0-2.ino):
 	- Agregada la comunicacion serial con Python.
-- [Software_RPH_v0-2](https://github.com/Unidad-Robotica-Dlab/Registro-PH/blob/main/Software/Software_RPH_v0-2.ipynb)
+- [Software_RPH_v0-2](https://github.com/Unidad-Robotica-Dlab/Registro-PH/blob/main/Software/Software_RPH_v0-2.ipynb):
 	- Interfaz de usuario con Menu para guardar los datos en un csv:
  		-  Variable: Tiempo de grabacion
    		-  Variable: Tiempo entre lecturas
