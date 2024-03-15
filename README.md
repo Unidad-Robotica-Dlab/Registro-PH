@@ -1,5 +1,6 @@
 # Proyecto: Registro-PH
 ## Solicitante: Simon Beard
+## Contacto:sbeard@cienciavida.org 
 ### Laboratorio: Microbial Ecophysiology Lab Fundación Ciencia y Vida
 
 #### Introducción:
