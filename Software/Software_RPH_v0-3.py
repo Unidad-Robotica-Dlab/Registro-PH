@@ -3,7 +3,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "c6a4196d-4310-45b4-bbfb-7e5cec75eace",
+   "id": "d327c73f-1ac4-446c-99c2-4a528c04aca4",
    "metadata": {},
    "outputs": [
     {
@@ -33,7 +33,80 @@
      "name": "stdin",
      "output_type": "stream",
      "text": [
-      "Escriba el nombre del .csv a guardar:  q4\n"
+      "Escriba el nombre del .csv a guardar:  ttt\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "------------------------------------------------\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Estas seguro?: no\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Reiniciando...\n",
+      "MENU PRINCIPAL\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Escriba el nombre del .csv a guardar:  ttt\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "------------------------------------------------\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Estas seguro?: si\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1. Iniciar Grabacion de datos\n",
+      "2. Salir\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Seleccione una opción:  2\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Reiniciando...\n",
+      "MENU PRINCIPAL\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Escriba el nombre del .csv a guardar:  yyy\n"
      ]
     },
     {
@@ -76,7 +149,29 @@
       "iniciando el programa...\n",
       "Enviando a Arduino:  LEER\n",
       "------------------------------------------------\n",
-      "Tiempo: 2024-03-18 16:19:09, Dato: 35.44\n"
+      "Tiempo: 2024-03-18 16:51:33, Dato: 35.44\n",
+      "Tiempo: 2024-03-18 16:51:33, Dato: 35.44\n",
+      "Tiempo: 2024-03-18 16:51:33, Dato: 35.44\n",
+      "Tiempo: 2024-03-18 16:51:33, Dato: 35.44\n",
+      "Tiempo: 2024-03-18 16:51:33, Dato: 35.44\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Presiona 'q' para salir:  q\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "salir\n",
+      "------------------------------------------------\n",
+      "Finalizado, espere un momento...\n",
+      "------------------------------------------------\n",
+      "MENU PRINCIPAL\n"
      ]
     }
    ],
@@ -89,6 +184,7 @@
     "import serial\n",
     "import serial.tools.list_ports\n",
     "from matplotlib.ticker import NullFormatter\n",
+    "import threading\n",
     "\n",
     "#['303', '305', '304', '304', '304', '305', '305', '304', '304', '304'] 1.68pH\n",
     "#['228', '229', '229', '229', '228', '230', '230', '229', '228', '230'] 10.01pH\n",
@@ -131,8 +227,19 @@
     "tiempo_actual = time.strftime('%Y-%m-%d %H:%M:%S') \n",
     "vector = []\n",
     "##########################################################################################################\n",
+    "def leer_entrada():\n",
+    "    global continuar\n",
+    "    while True:\n",
+    "        entrada = input(\"Presiona 'q' para salir: \").strip().lower()\n",
+    "        if entrada == 'q':\n",
+    "            continuar = False\n",
+    "            break\n",
     "\n",
+    "continuar = True\n",
     "\n",
+    "# Iniciar el hilo para leer la entrada del usuario\n",
+    "\n",
+    "##########################################################################################################\n",
     "\n",
     "def main():\n",
     "    arduino = serial.Serial(puerto, 115200, timeout=1) #windows\n",
@@ -148,6 +255,7 @@
     "            print(\"1. Iniciar Grabacion de datos\")\n",
     "            print(\"2. Salir\")\n",
     "            opcionn = input(\"Seleccione una opción: \")\n",
+    "            \n",
     "            if opcionn == '1':\n",
     "                t_grabacion = input(\"Seleccione el tiempo total de grabacion\")\n",
     "                t_lectura = int(input(\"Seleccione un intervalo de tiempo (segs) entre lecturas:\"))\n",
@@ -162,30 +270,37 @@
     "                        arduino.write(instruccion.encode('utf-8'))\n",
     "                        print(\"------------------------------------------------\")\n",
     "                        data_count = 0\n",
-    "\n",
+    "                        thread_entrada = threading.Thread(target=leer_entrada)\n",
+    "                        thread_entrada.start()\n",
     "                        try:\n",
     "                            while True:\n",
     "                                while data_count < int(t_grabacion):  # Continuar leyendo hasta que se lean 10 líneas\n",
     "                                    arduino.write(instruccion.encode('utf-8'))\n",
     "                                    data = arduino.readline().decode().strip()\n",
     "                                    if data is not None and data != \"\":\n",
-    "                                        data_count = data_count+1\n",
-    "                                        data_pH = -(0.11106666666666666*float(data))+35.444266666666664\n",
-    "                                        data_pH = \"{:.2f}\".format(data_pH)\n",
-    "                                        #print(\"Datos bruto: {:.2f}\".format(float(data)))\n",
-    "                                        archivo_csv = open(ruta_archivo, mode='a', newline='')\n",
-    "                                        escritor_csv = csv.writer(archivo_csv)\n",
-    "                                        escritor_csv.writerow([data_pH])\n",
-    "                                        archivo_csv.close()\n",
-    "                                        print(f'Tiempo: {tiempo_actual}, Dato: {data_pH}')\n",
-    "                                        time.sleep(t_lectura)\n",
-    "                                        if input(\"Presiona 'q' para salir: \").strip().lower() == 'q':\n",
-    "                                            break\n",
-    "                                            \n",
+    "                                        try:\n",
+    "                                            while continuar:\n",
+    "                                                data_count = data_count+1\n",
+    "                                                data_pH = -(0.11106666666666666*float(data))+35.444266666666664\n",
+    "                                                data_pH = \"{:.2f}\".format(data_pH)\n",
+    "                                                #print(\"Datos bruto: {:.2f}\".format(float(data)))\n",
+    "                                                archivo_csv = open(ruta_archivo, mode='a', newline='')\n",
+    "                                                escritor_csv = csv.writer(archivo_csv)\n",
+    "                                                escritor_csv.writerow([data_pH])\n",
+    "                                                archivo_csv.close()\n",
+    "                                                print(f'Tiempo: {tiempo_actual}, Dato: {data_pH}')\n",
+    "                                                time.sleep(t_lectura)\n",
+    "                                        \n",
+    "                                        except KeyboardInterrupt:\n",
+    "                                            print(\"Programa detenido por el usuario.\")\n",
+    "\n",
+    "                                        thread_entrada.join()\n",
+    "                                        print(\"salir\")\n",
+    "                                        break\n",
     "                                print(\"------------------------------------------------\")\n",
     "                                time.sleep(1)\n",
-    "                                print(\"Finalizado, espere un momento...\")\n",
-    "                                time.sleep(1)\n",
+    "                                print(\"Programa terminado por el usuario, espere un momento...\")\n",
+    "                                time.sleep(2)\n",
     "                                print(\"------------------------------------------------\")\n",
     "                                arduino.close()\n",
     "                                time.sleep(3)\n",
@@ -195,12 +310,11 @@
     "                        except KeyboardInterrupt:\n",
     "                            print(\"Programa detenido por el usuario.\")\n",
     "                                    \n",
-    "                                \n",
+    "                           \n",
+    "                        \n",
     "                    elif iniciar ==\"no\":\n",
     "                        print(\"Saliendo del programa...\")\n",
-    "                        time.sleep(1)\n",
-    "                        print(\"------------------------------------------------\")\n",
-    "                        time.sleep(1)\n",
+    "                        arduino.close()\n",
     "                        break\n",
     "                    else:\n",
     "                        print(\"Error\")\n",
@@ -215,13 +329,20 @@
     "                print(\"Opción inválidaaa. Por favor, selecciona una opción válida.\")\n",
     "    if confirmar == 'no':\n",
     "        print(\"Reiniciando...\")\n",
-    "        arduino.close()\n",
     "        time.sleep(3)\n",
     "        main()\n",
     "#\n",
     "if __name__ == \"__main__\":\n",
     "    main()"
    ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "7e5949e6-5d4a-4ed0-a602-8b7c04bd6016",
+   "metadata": {},
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {
