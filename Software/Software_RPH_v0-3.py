@@ -1,3 +1,4 @@
+# SOFTWARE CON INTERFAZ DE USUARIO. ASIGNAR NOMBRE EXP Y AUTOR PARA CSV E INGRESAR TIEMPO DE INTERVALO ENTRE LECTURAS.
 import time
 from matplotlib import pyplot as plt
 import csv
@@ -11,7 +12,6 @@ import threading
 #['303', '305', '304', '304', '304', '305', '305', '304', '304', '304'] 1.68pH
 #['228', '229', '229', '229', '228', '230', '230', '229', '228', '230'] 10.01pH
 #y=−0.11106666666666666x+35.444266666666664
-
 #########################################################################################################
 def seleccionar_puerto():
     puertos_disponibles = [puerto.device for puerto in serial.tools.list_ports.comports()]
