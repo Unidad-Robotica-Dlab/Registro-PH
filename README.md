@@ -52,3 +52,8 @@ La Maquina ElectroLab FerMac 200 es capaz de controlar el pH de una solución de
 	- Ecuación de la recta: y = -0.11226x + 35.58453.
 - [11/03/24]:
 	- Cotización y diseño del soporte del dispositivo en Inkscape.
+
+- [19/03/24]:
+	- Perillas AKHALI y ACID regulan el set point del rango de pH a leer. Para mover el setpoint se deja el encoder en SET
+	- Perillas SLOPE and CAL regulan la pendiente y el intercepto. SLOPE se usa para pH 4 y  CAL para pH 7
+ 	- Verificar si al mover SLOPE and CAL modifica el valor del voltaje 
