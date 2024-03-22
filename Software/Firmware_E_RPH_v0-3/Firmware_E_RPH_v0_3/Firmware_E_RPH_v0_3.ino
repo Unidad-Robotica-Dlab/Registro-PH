@@ -6,12 +6,12 @@ int lecturas[BUFFER_SIZE];
 int valores[10]; 
 float vectorpH[10];
 ////////////////////////////
-const int ADC_Carga = 34; 
-
+const int ADC_Carga = 35; 
+int promedio;
 int numValores = 0; 
 int a=0;
 int j=1;
-int suma;
+int suma = 0;
 
 void setup() {
   Serial.begin(115200); 
@@ -41,10 +41,15 @@ void loop() {
                     suma += lecturas[i];
                               
                   }
-
-                  Serial.println(suma/10);
-                  
+                  promedio = suma/10;
+                  Serial.println(promedio);
+                  promedio = 0;
+                  suma = 0;
           }
+          if (data == "R") { 
+            ESP.restart();
+          }
+          
       }
   }
   
