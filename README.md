@@ -50,5 +50,15 @@ La Maquina ElectroLab FerMac 200 es capaz de controlar el pH de una solución de
 	- Después de agregar el amplificador operacional, para 1.68pH, el voltaje es de 2.16V; para 10.1pH, es de 1.58V.
 	- Los valores leídos analógicamente son 302 para 1.68pH y 227 para 10.1pH.
 	- Ecuación de la recta: y = -0.11226x + 35.58453.
+
 - [11/03/24]:
 	- Cotización y diseño del soporte del dispositivo en Inkscape.
+
+- [19/03/24]:
+	- Perillas AKHALI y ACID regulan el set point del rango de pH a leer. Para mover el setpoint se deja el encoder en SET
+	- Perillas SLOPE and CAL regulan la pendiente y el intercepto. SLOPE se usa para pH 4 y  CAL para pH 7
+ 	- Verificar si al mover SLOPE and CAL modifica el valor del voltaje
+    
+- [21/03/24]:
+	- Agregar menu de calibracion. Donde se calibre la maquina , luego ingrese el pH bajo (4.01) en el menu, luego se calibre la maquina con el pH alto y se ingrese el pH alto en el menu (7.01)
+	- Con esos valores del pH, calcular ec de la recta. De esta forma pasamos a realizar la grabacion de datos
