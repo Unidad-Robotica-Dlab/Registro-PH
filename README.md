@@ -62,3 +62,13 @@ La Maquina ElectroLab FerMac 200 es capaz de controlar el pH de una solución de
 - [21/03/24]:
 	- Agregar menu de calibracion. Donde se calibre la maquina , luego ingrese el pH bajo (4.01) en el menu, luego se calibre la maquina con el pH alto y se ingrese el pH alto en el menu (7.01)
 	- Con esos valores del pH, calcular ec de la recta. De esta forma pasamos a realizar la grabacion de datos
+
+ - [27/03/24]:
+	- Reducir ruido promediando los 10 valores.
+ 	- Preguntar primero por "pH 7" y luego por "pH 4".
+   	- Intervalo minimo: 1min
+	- Agregar submenu calibracion:
+ 		- Calibracion Nueva
+   		- Cargar ultima Calibracion
+     	- Agregar menu Ajustar Calibracion. (Esta calibracion ajustara directamente el intercepto de la ec. de la recta, es decir: "b")
+      -  Mejorar el "Presione q para salir" , ya que se muestra encima del print.
