@@ -54,7 +54,7 @@ def interrupcion():
 continuar = True
 
 ##########################################################################################################
-ruta_archivo2 = './/calibracion_.csv'
+ruta_archivo2 = './/calibracion.csv'
 
 def main():
     m=None

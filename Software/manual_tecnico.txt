@@ -1,0 +1,62 @@
+Manual Técnico de Uso
+Introducción:
+
+El siguiente manual técnico proporciona una guía detallada sobre el uso del programa para interactuar con un dispositivo Arduino que realiza mediciones de pH. El programa está diseñado para realizar calibraciones del sensor de pH y para grabar datos de manera continua.
+Requisitos del Sistema:
+
+    Hardware:
+        Computadora con puertos USB disponibles.
+        Dispositivo Arduino con un sensor de pH conectado.
+        Cable USB para conectar el Arduino a la computadora.
+    Software:
+        Sistema operativo compatible con Python (Windows, Linux, macOS).
+        Python 3.x instalado en la computadora.
+        Bibliotecas Python: matplotlib, csv, datetime, serial, pandas.
+
+Instalación de Dependencias:
+
+    Python:
+        Descargue e instale Python desde el sitio web oficial: Python.org.
+    Bibliotecas Python:
+        Abra la terminal o símbolo del sistema.
+        Ejecute el siguiente comando para instalar las bibliotecas requeridas:
+
+        pip install matplotlib pandas
+        pip install pyserial
+
+Configuración:
+
+    Conexión del Dispositivo Arduino:
+        Conecte el Arduino a un puerto USB disponible en su computadora utilizando el cable USB.
+        Asegúrese de que el sensor de pH esté conectado correctamente al Arduino.
+    Selección del Puerto Serial:
+        Ejecute el programa y siga las instrucciones para seleccionar el puerto serial al que está conectado el Arduino.
+
+Uso del Programa:
+
+    Ejecución del Programa:
+        Abra una terminal o símbolo del sistema.
+        Navegue al directorio donde se encuentra el archivo del programa.
+        Ejecute el programa utilizando el comando:
+
+        python Software_RPH_v1-0.py
+
+    Calibración:
+        Elija la opción de "Iniciar Calibración" en el menú principal.
+        Siga las instrucciones para ingresar los valores de pH conocidos (pH 7 y pH 4) cuando se le solicite.
+        Los datos de calibración se guardarán en un archivo CSV para su uso futuro.
+    Grabación de Datos:
+        Seleccione la opción de "Iniciar Grabación de Datos" en el menú principal.
+        Especifique el intervalo de tiempo entre las lecturas de datos de pH.
+        El programa iniciará la grabación de datos y guardará los resultados en un archivo CSV con un nombre personalizado.
+    Finalización del Programa:
+        En cualquier momento, puede seleccionar la opción de "Salir" en el menú principal para cerrar el programa de forma ordenada.
+        Asegúrese de detener la grabación de datos antes de salir del programa para evitar la pérdida de información.
+
+Notas Adicionales:
+
+    El programa ofrece manejo de errores y excepciones para garantizar una experiencia de usuario fluida y segura.
+    Se recomienda realizar una calibración inicial antes de comenzar a grabar datos para obtener mediciones precisas de pH.
+    Los archivos CSV generados pueden ser abiertos y analizados utilizando software compatible con este formato, como Microsoft Excel o Google Sheets.
+
+Este manual técnico proporciona una visión general de los pasos necesarios para utilizar el programa de manera efectiva y maximizar su funcionalidad para realizar mediciones de pH con un dispositivo Arduino.
