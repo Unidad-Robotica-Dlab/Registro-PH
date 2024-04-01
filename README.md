@@ -72,3 +72,6 @@ La Maquina ElectroLab FerMac 200 es capaz de controlar el pH de una solución de
    		- Cargar ultima Calibracion
      	- Agregar menu Ajustar Calibracion. (Esta calibracion ajustara directamente el intercepto de la ec. de la recta, es decir: "b")
       -  Mejorar el "Presione q para salir" , ya que se muestra encima del print.
+
+ - [01/04/24]:
+	- Resumen de programa y manual tecnico de uso .
