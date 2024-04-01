@@ -32,7 +32,7 @@ void loop() {
         String data = Serial.readStringUntil('\r');
 
           if (data == "LEER") { 
-
+                  Serial.println("Ok");
                   for (size_t i = 0; i < 10; i++) { // Repite el parpadeo 5 veces
                     lecturas[i] = analogRead(ADC_Carga);
                     delay(100); // OTRA VARIABLE
